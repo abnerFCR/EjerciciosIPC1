@@ -17,7 +17,7 @@ public class Clase1 {
      * @param args the command line arguments
      */
     //variables para lectura de datos ingresados por el usuario
-    static Scanner lectorNumeros;
+    static Scanner lectorNumeros=new Scanner(System.in);
     static Scanner lectorCadena;
     public static void main(String[] args) {
         // TODO code application logic here
@@ -32,9 +32,10 @@ public class Clase1 {
             
             //manejo de errores, lectura de datos ingresados por el usuario
             try {
-                lectorNumeros = new Scanner(System.in);
+                //lectorNumeros = new Scanner(System.in);
                 opcion = lectorNumeros.nextInt();
             } catch (Exception e) {
+                lectorNumeros.nextLine();
                 System.out.println("Por favor ingrese un numero");
             }
             //seleccion de menu.
