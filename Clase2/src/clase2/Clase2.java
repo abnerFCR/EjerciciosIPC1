@@ -53,9 +53,10 @@ public class Clase2 {
             fichero = new FileWriter("./prueba.html");
             pw = new PrintWriter(fichero);
             //agregamos codigo html
-            pw.println("<html><head><title>Primera Prueba desde Java</title>");
+            pw.println("<html><head><title>Primera Prueba desde Java á</title>");
             pw.println("<link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1\" crossorigin=\"anonymous\">");
             pw.println("</head><body>");
+            pw.println("<h2>Pok"+(char)130+"mons</h2>");
             pw.println("<table class=\"table table-hover\">");
             for (int i = 0; i < 3; i++) {         //recorrer las filas
                 pw.println("<tr class=\"table-primary\">");
