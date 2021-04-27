@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend</title>
+</head>
+<body>
+    <input type="text" id="nombre">
+    <input type="text" id="telefono">
+    <input type="text" id="direccion">
+    <button type="button" onclick="insertar()"> Insertar Usuario</button>
+
+    <script>
+        function insertar(){
+            var nombre = document.querySelector("#nombre").value;
+            var telefono = document.querySelector("#telefono").value;
+            var direccion = document.querySelector("#direccion").value;
+
+            var objetoEnviar ={
+                'nombre':nombre,
+                'telefono':telefono,
+                'direccion':direccion
+            }
+
+            fetch('http://3.142.251.215:3000/insertarUsuario', {
+                method: 'POST',
+                body:JSON.stringify(objetoEnviar),
+                headers:{
+                    'Content-Type':'application/json',
+                    'Access-Control-Allow-Origin':'*'
+                }     
+
+            }).then(res=>res.json()).catch(err=>{
+                console.log('Ocurrio un error en la comunicacion')
+                alert("No funciono el insertar usuario");
+            }).then(response=>{
+                console.log(response);
+                if(response.error==true){
+                    console.log('Ocurrio un error en la comunicacion')
+                    alert("No funciono el insertar usuario");
+                }else{
+                    alert(response.mensaje);
+                }
+            })
+        }
+    </script>
+</body>
+</html>
